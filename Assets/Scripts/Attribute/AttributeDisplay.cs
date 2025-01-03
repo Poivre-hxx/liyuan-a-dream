@@ -15,6 +15,7 @@ public class AttributeDisplay : MonoBehaviour
     [SerializeField] private bool Wencai;
     [SerializeField] private bool Tipo;
     [SerializeField] private bool Mingqi;
+    [SerializeField] private bool Shensha;
 
     public bool autoRefresh = true;
 
@@ -33,10 +34,10 @@ public class AttributeDisplay : MonoBehaviour
         string displayContent = "";
 
         if (Name)
-            displayContent += $"{player.PlayerName}\n";
+            displayContent += $"{player.PlayerName} {player.Age}Ëê\n";
 
         if (BirthDate)
-            displayContent += $"{player.BirthDateTime}\n";
+            displayContent += $"Éú³½£º{player.BirthDateTime}\n";
 
         if (Daode)
             displayContent += $"{player.Daode}\n";
@@ -56,6 +57,9 @@ public class AttributeDisplay : MonoBehaviour
         if (Mingqi)
             displayContent += $"{player.Mingqi}\n";
 
+        if (Shensha)
+            displayContent += $"{player.Mingsha_0}¡¢{player.Mingsha_1}¡¢{player.Mingsha_2}¡¢{player.Mingsha_3}\n";
+
         if (displayContent.EndsWith("\n"))
             displayContent = displayContent.TrimEnd('\n');
 
@@ -70,4 +74,5 @@ public class AttributeDisplay : MonoBehaviour
     public void ToggleWencai(bool value) { Wencai = value; UpdateDisplay(); }
     public void ToggleTipo(bool value) { Tipo = value; UpdateDisplay(); }
     public void ToggleMingqi(bool value) { Mingqi = value; UpdateDisplay(); }
+    public void ToggleShensha(bool value) { Shensha = value; UpdateDisplay(); }
 }

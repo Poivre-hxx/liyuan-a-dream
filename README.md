@@ -6,10 +6,6 @@
 
 todolist：
 
-EntryPage
-
-- 点击收徒后让ai根据个人信息生成命煞以及基础属性值，并显示在`Attribute`中（hxx）
-
 Train
 
 - 9个选项的图层层级关系有亿点点乱

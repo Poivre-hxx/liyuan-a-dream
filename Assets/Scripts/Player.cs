@@ -5,6 +5,7 @@ using System;
 public class PlayerInfo
 {
     public string name;
+    public int age;
     public string teacher;
     public int birY;
     public int birM;
@@ -62,7 +63,8 @@ public class Player : MonoBehaviour
 
     // 访问基本信息的属性
     public string PlayerName => playerInfo.name;
-    public string BirthDateTime => $"{playerInfo.birY}年{playerInfo.birM}月{playerInfo.birD}日{playerInfo.birH}时";
+    public int Age => playerInfo.age;
+    public string BirthDateTime => $"{playerInfo.birY}年{playerInfo.birM}月{playerInfo.birD}日";
 
     // 访问命煞
     public string Mingsha_0 => mingshaInfo.mingsha_0;
@@ -93,6 +95,11 @@ public class Player : MonoBehaviour
     {
         playerInfo.name = newName;
         playerInfo.teacher = teacherName;
+    }
+
+    public void AddAge()
+    {
+        playerInfo.age = playerInfo.age <= 10 ? playerInfo.age + 1 : playerInfo.age;
     }
 
     public void SetBirthTime(int year, int month, int day, int hour)
@@ -129,8 +136,14 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        ResetPlayerAge();
         ResetAttributes();
         ResetSkills();
+    }
+
+    public void ResetPlayerAge()
+    {
+        playerInfo.age = 7;
     }
 
     public void ResetAttributes()
