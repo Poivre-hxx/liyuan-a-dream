@@ -13,6 +13,15 @@ public class PlayerInfo
 }
 
 [Serializable]
+public class MingshaInfo
+{
+    public string mingsha_0;
+    public string mingsha_1;
+    public string mingsha_2;
+    public string mingsha_3;
+}
+
+[Serializable]
 public class AttributeInfo
 {
     public int daode;
@@ -42,6 +51,9 @@ public class Player : MonoBehaviour
     [Header("基本信息")]
     [SerializeField] private PlayerInfo playerInfo;
 
+    [Header("命煞")]
+    [SerializeField] private MingshaInfo mingshaInfo;
+
     [Header("属性值")]
     [SerializeField] private AttributeInfo attributeInfo;
 
@@ -51,6 +63,12 @@ public class Player : MonoBehaviour
     // 访问基本信息的属性
     public string PlayerName => playerInfo.name;
     public string BirthDateTime => $"{playerInfo.birY}年{playerInfo.birM}月{playerInfo.birD}日{playerInfo.birH}时";
+
+    // 访问命煞
+    public string Mingsha_0 => mingshaInfo.mingsha_0;
+    public string Mingsha_1 => mingshaInfo.mingsha_1;
+    public string Mingsha_2 => mingshaInfo.mingsha_2;
+    public string Mingsha_3 => mingshaInfo.mingsha_3;
 
     // 访问属性信息的属性
     public int Daode => attributeInfo.daode;
@@ -84,6 +102,13 @@ public class Player : MonoBehaviour
         playerInfo.birD = day;
         playerInfo.birH = hour;
     }
+    public void SetMingsha(string mingsha_0, string mingsha_1, string mingsha_2, string mingsha_3)
+    {
+        mingshaInfo.mingsha_0 = mingsha_0;
+        mingshaInfo.mingsha_1 = mingsha_1;
+        mingshaInfo.mingsha_2 = mingsha_2;
+        mingshaInfo.mingsha_3 = mingsha_3;
+    }
 
     public void ModifyDaode(int amount) => attributeInfo.daode += amount;
     public void ModifyChushi(int amount) => attributeInfo.chushi += amount;
@@ -104,24 +129,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-    }
-
-    public int GetTotalAttributes()
-    {
-        return attributeInfo.daode + attributeInfo.chushi + attributeInfo.rongmao +
-               attributeInfo.wencai + attributeInfo.tipo + attributeInfo.mingqi;
-    }
-
-    public int GetTotalFourArts()
-    {
-        return skillInfo.four_Sing + skillInfo.four_Chant +
-               skillInfo.four_Do + skillInfo.four_Fight;
-    }
-
-    public int GetTotalFiveSenses()
-    {
-        return skillInfo.five_Hand + skillInfo.five_Eye + skillInfo.five_Body +
-               skillInfo.Five_Magic + skillInfo.Five_Foot;
+        ResetAttributes();
+        ResetSkills();
     }
 
     public void ResetAttributes()

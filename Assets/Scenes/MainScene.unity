@@ -1623,7 +1623,6 @@ GameObject:
   m_Component:
   - component: {fileID: 241850233}
   - component: {fileID: 241850235}
-  - component: {fileID: 241850234}
   - component: {fileID: 241850236}
   m_Layer: 0
   m_Name: "\u6536\u5F92\u6309\u94AE"
@@ -1647,19 +1646,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 208319870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &241850234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241850232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd128d7578e243b47b5725b97f8ceee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1833988464}
 --- !u!212 &241850235
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1731,6 +1717,7 @@ MonoBehaviour:
   monthInput: {fileID: 1928480388}
   dayInput: {fileID: 832681344}
   hourInput: {fileID: 1322225002}
+  targetObject: {fileID: 1833988464}
 --- !u!1 &251796348
 GameObject:
   m_ObjectHideFlags: 0
@@ -10237,6 +10224,11 @@ MonoBehaviour:
     birM: 0
     birD: 0
     birH: 0
+  mingshaInfo:
+    mingsha_0: 
+    mingsha_1: 
+    mingsha_2: 
+    mingsha_3: 
   attributeInfo:
     daode: 0
     chushi: 0
