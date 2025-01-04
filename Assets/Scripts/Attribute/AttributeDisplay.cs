@@ -26,6 +26,21 @@ public class AttributeDisplay : MonoBehaviour
     public bool autoRefresh = true;
     private float smoothSpeed = 1f;
 
+    private void OnEnable()
+    {
+        Debug.Log("do this");
+        //只有随机事件后会产生
+        if(player.AttributeResponse != null)
+        {
+            ChangeAttribute(player.AttributeResponse);
+            player.AttributeResponse = null;
+        }
+        else
+        {
+            UpdateDisplay();
+        }
+    }
+
     private void Update()
     {
         //if (autoRefresh)

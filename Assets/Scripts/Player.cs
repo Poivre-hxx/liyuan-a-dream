@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Newtonsoft.Json.Linq;
 
 [Serializable]
 public class PlayerInfo
@@ -90,6 +91,8 @@ public class Player : MonoBehaviour
     public int Year;
     public Seasons season;
 
+    [Header("随机事件变化值")]
+    public JObject AttributeResponse = null;
 
 
     // 访问基本信息的属性

@@ -9524,7 +9524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264333803
 Transform:
   m_ObjectHideFlags: 0
@@ -12196,7 +12196,7 @@ MonoBehaviour:
   - {fileID: 1833988464}
   - {fileID: 1431615955}
   - {fileID: 1264333802}
-  initialVisibleObject: {fileID: 1431615955}
+  initialVisibleObject: {fileID: 1264333802}
 --- !u!4 &1626942598
 Transform:
   m_ObjectHideFlags: 0
@@ -12247,6 +12247,13 @@ MonoBehaviour:
     wencai: 1
     tipo: 1
     mingqi: 1
+  attributeChange:
+    daode_change: 0
+    chushi_change: 0
+    rongmao_change: 0
+    wencai_change: 0
+    tipo_change: 0
+    mingqi_change: 0
   skillInfo:
     four_Sing: 0
     four_Chant: 0
