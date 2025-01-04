@@ -188,6 +188,7 @@ public class SetAttribute : MonoBehaviour
             Debug.Log($"ÌáÈ¡µÄJSON: {jsonPart}");
 
             JObject response = JObject.Parse(jsonPart);
+            Debug.Log($"response: {response}");
 
             string[] mingshas = new string[5];
             for (int i = 0; i <= 4; i++)

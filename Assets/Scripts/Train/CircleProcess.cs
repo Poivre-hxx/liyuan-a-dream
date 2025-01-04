@@ -23,7 +23,7 @@ public class CircleProcess : MonoBehaviour
     [SerializeField] private bool show_Five_Magic;
     [SerializeField] private bool show_Five_Foot;
 
-    private float currentFillAmount = 0f;
+    //private float currentFillAmount = 0f;
     private float targetFillAmount = 0f;
 
     private void Start()
@@ -179,8 +179,7 @@ public class CircleProcess : MonoBehaviour
             cur = Mathf.Lerp(cur, tar, Time.deltaTime * smoothSpeed);
             progressImage.fillAmount = cur;
             yield return null;
-
-            Debug.Log($"Current Fill Amount: {cur}, Target Fill Amount: {tar}");
+            //Debug.Log($"Current Fill Amount: {cur}, Target Fill Amount: {tar}");
         }
         progressImage.fillAmount = tar;
     }
@@ -264,7 +263,7 @@ public class CircleProcess : MonoBehaviour
 
         if (targetFillAmount == 0f)
         {
-            currentFillAmount = 0f;
+            //currentFillAmount = 0f;
             progressImage.fillAmount = 0f;
         }
     }
