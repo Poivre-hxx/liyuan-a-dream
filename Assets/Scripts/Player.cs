@@ -177,12 +177,12 @@ public class Player : MonoBehaviour
     public void ModifyTipo(int amount) => attributeInfo.tipo = Mathf.Clamp(attributeInfo.tipo + amount, 0, 100);
     public void ModifyMingqi(int amount) => attributeInfo.mingqi = Mathf.Clamp(attributeInfo.mingqi + amount, 0, 100);
 
-    public void ModifyDaode(int amount) => attributeChange.daode_change = amount;
-    public void ModifyChushi(int amount) => attributeChange.chushi_change = amount;
-    public void ModifyRongmao(int amount) => attributeChange.rongmao_change = amount;
-    public void ModifyWencai(int amount) => attributeChange.wencai_change = amount;
-    public void ModifyTipo(int amount) => attributeChange.tipo_change = amount;
-    public void ModifyMingqi(int amount) => attributeChange.mingqi_change = amount;
+    public void ModifyDaodeChange(int amount) => attributeChange.daode_change = amount;
+    public void ModifyChushiChange(int amount) => attributeChange.chushi_change = amount;
+    public void ModifyRongmaoChange(int amount) => attributeChange.rongmao_change = amount;
+    public void ModifyWencaiChange(int amount) => attributeChange.wencai_change = amount;
+    public void ModifyTipoChange(int amount) => attributeChange.tipo_change = amount;
+    public void ModifyMingqiChange(int amount) => attributeChange.mingqi_change = amount;
 
     public void ModifyFourSing(int amount) => skillInfo.four_Sing += amount;
     public void ModifyFourChant(int amount) => skillInfo.four_Chant += amount;
