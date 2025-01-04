@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
 
     // 访问基本信息的属性
     public string PlayerName => playerInfo.name;
+    public string Teacher => playerInfo.teacher;
     public int Age => playerInfo.age;
     public string BirthDateTime => $"{playerInfo.birY}年{playerInfo.birM}月{playerInfo.birD}日";
 
