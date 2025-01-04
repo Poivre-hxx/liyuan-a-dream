@@ -72,12 +72,16 @@ public class ButtonAnPai : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+
         gameControl.SetObjectVisible(targetObject);
+
         TimeControl();
 
         foreach(var cirle in changecirles)
         {
             cirle.curFill = cirle.targetFill;   
         }
+
+        //生成随机事件
     }
 }

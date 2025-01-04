@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1035710381}
   maxValue: 100
   smoothSpeed: 5
@@ -994,7 +995,7 @@ MonoBehaviour:
   four_Chant: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
   four_Do: {fileID: 21300000, guid: 7c15b8917aa30a547923f3b15e2d1104, type: 3}
   four_Fight: {fileID: 21300000, guid: 6ec2af6733d6ed74891b4e5db9398e45, type: 3}
-  five_Hand: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
+  five_Hand: {fileID: 21300000, guid: 3b68f8b84cc78c64fb4f8b6b3050cfac, type: 3}
   five_Eye: {fileID: 21300000, guid: 1bc7e102520fadb42a89e46e713bcad8, type: 3}
   five_Body: {fileID: 21300000, guid: 12d7c3a156cb7574ea943fa1d6af5b9d, type: 3}
   five_Magic: {fileID: 21300000, guid: 8d7a131d2fd65ca479a33669cade644d, type: 3}
@@ -3572,6 +3573,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &573053644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4301,6 +4303,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!1 &613638549
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,6 +5702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1540855782}
   maxValue: 100
   smoothSpeed: 5
@@ -6213,6 +6217,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &864045406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6767,6 +6772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 682723243}
   maxValue: 100
   smoothSpeed: 5
@@ -7187,6 +7193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1348103239}
   maxValue: 100
   smoothSpeed: 5
@@ -7491,6 +7498,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &989259544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7762,6 +7770,43 @@ MonoBehaviour:
   gameControl: {fileID: 1626942597}
   targetObject: {fileID: 992525624}
   player: {fileID: 1626942599}
+  changecirles:
+  - xianmu: 0
+    circleProcess: {fileID: 2090700918}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 1
+    circleProcess: {fileID: 943697149}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 2
+    circleProcess: {fileID: 1318383583}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 3
+    circleProcess: {fileID: 1984244863}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 4
+    circleProcess: {fileID: 1718341209}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 5
+    circleProcess: {fileID: 1491919098}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 6
+    circleProcess: {fileID: 970562454}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 7
+    circleProcess: {fileID: 782737971}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 8
+    circleProcess: {fileID: 40858566}
+    curFill: 0
+    targetFill: 0
 --- !u!1 &1017043716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,6 +8089,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 1
+  circle: {fileID: 0}
 --- !u!1 &1053371223
 GameObject:
   m_ObjectHideFlags: 0
@@ -9326,6 +9372,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &1232966672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9734,6 +9781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 505332325}
   maxValue: 100
   smoothSpeed: 5
@@ -10038,6 +10086,7 @@ MonoBehaviour:
   five_Body: 1
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &1322951379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10492,6 +10541,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 0
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &1352591347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11040,6 +11090,7 @@ MonoBehaviour:
   five_Body: 0
   Five_Magic: 1
   Five_Foot: 0
+  circle: {fileID: 0}
 --- !u!212 &1480062428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11332,6 +11383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 502386635}
   maxValue: 100
   smoothSpeed: 5
@@ -12945,6 +12997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 776953353}
   maxValue: 100
   smoothSpeed: 5
@@ -14660,6 +14713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1709227228}
   maxValue: 100
   smoothSpeed: 5
@@ -15664,6 +15718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 2119373334}
   maxValue: 100
   smoothSpeed: 5
