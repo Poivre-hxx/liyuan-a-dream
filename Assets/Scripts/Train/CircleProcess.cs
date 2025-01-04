@@ -39,13 +39,23 @@ public class CircleProcess : MonoBehaviour
 
     private void Update()
     {
-        UpdateProgress();
+        //UpdateProgress();
         if (progressImage != null && Mathf.Abs(currentFillAmount - targetFillAmount) > 0.001f)
         {
             currentFillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, Time.deltaTime * smoothSpeed);
             progressImage.fillAmount = currentFillAmount;
 
             Debug.Log($"Current Fill Amount: {currentFillAmount}, Target Fill Amount: {targetFillAmount}");
+        }
+    }
+
+    public void Progress()
+    {
+        if (show_four_Sing)
+        {
+            //totalValue += player.FourSing;
+            //selectedCount++;
+            //Debug.Log($"Four Sing: {player.FourSing}");
         }
     }
 

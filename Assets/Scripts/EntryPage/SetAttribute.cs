@@ -161,6 +161,7 @@ public class SetAttribute : MonoBehaviour
         {
             ApiResponse apiResponse = JsonUtility.FromJson<ApiResponse>(uwr.downloadHandler.text);
             string responseJson = apiResponse.choices[0].message.content;
+            Debug.Log(responseJson);    
             ProcessResponse(responseJson);
         }
         else

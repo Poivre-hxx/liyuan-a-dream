@@ -61,6 +61,12 @@ public class Player : MonoBehaviour
     [Header("技能值")]
     [SerializeField] private SkillInfo skillInfo;
 
+    [Header("时间")]
+    [SerializeField] private int Year;
+    [SerializeField] private Seasons season;
+
+
+
     // 访问基本信息的属性
     public string PlayerName => playerInfo.name;
     public int Age => playerInfo.age;
@@ -90,6 +96,10 @@ public class Player : MonoBehaviour
     public int FiveBody => skillInfo.five_Body;
     public int FiveMagic => skillInfo.Five_Magic;
     public int FiveFoot => skillInfo.Five_Foot;
+
+    //访问年份
+    public int curYear => Year;
+    public Seasons curseason => season;
 
     public void SetPlayerName(string newName, string teacherName)
     {
@@ -139,6 +149,8 @@ public class Player : MonoBehaviour
         ResetPlayerAge();
         ResetAttributes();
         ResetSkills();
+        Year = 1;
+        season = Seasons.spring;
     }
 
     public void ResetPlayerAge()
