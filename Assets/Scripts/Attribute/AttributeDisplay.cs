@@ -1,5 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Collections;
+using System.Runtime.ConstrainedExecution;
+using Unity.Mathematics;
+
 
 public class AttributeDisplay : MonoBehaviour
 {
@@ -18,13 +24,14 @@ public class AttributeDisplay : MonoBehaviour
     [SerializeField] private bool Shensha;
 
     public bool autoRefresh = true;
+    private float smoothSpeed = 1f;
 
     private void Update()
     {
-        if (autoRefresh)
-        {
-            UpdateDisplay();
-        }
+        //if (autoRefresh)
+        //{
+        //    UpdateDisplay();
+        //}
     }
 
     public void UpdateDisplay()
@@ -75,4 +82,42 @@ public class AttributeDisplay : MonoBehaviour
     public void ToggleTipo(bool value) { Tipo = value; UpdateDisplay(); }
     public void ToggleMingqi(bool value) { Mingqi = value; UpdateDisplay(); }
     public void ToggleShensha(bool value) { Shensha = value; UpdateDisplay(); }
+
+
+
+    /// <summary>
+    /// 随机时间后的增减
+    /// </summary>
+    /// <param name="AttributeResponse"></param>
+    public void ChangeAttribute(JObject AttributeResponse )
+    {
+
+        var attrs = AttributeResponse["attributes"];
+
+        //道德
+        if (Daode) StartCoroutine(changeNum(attrs["daode"].Value<int>(), player.Daode));
+        //处世
+        if (Chushi) StartCoroutine(changeNum(attrs["chushi"].Value<int>(), player.Chushi));
+        //容貌
+        if (Rongmao) StartCoroutine(changeNum(attrs["rongmao"].Value<int>(), player.Rongmao));
+        //文采
+        if (Wencai) StartCoroutine(changeNum(attrs["wencai"].Value<int>(), player.Wencai ));
+        //体魄
+        if (Tipo) StartCoroutine(changeNum(attrs["tipo"].Value<int>(), player.Tipo));
+        //名气
+        if (Mingqi) StartCoroutine(changeNum(attrs["mingqi"].Value<int>(), player.Mingqi));
+    }
+
+    IEnumerator changeNum(int changeAmount,int oldValue)
+    {
+        int curValue = oldValue;
+        float temp;
+        while (!Mathf.Approximately(curValue, oldValue + changeAmount)){
+            temp = Mathf.Lerp(curValue, oldValue + changeAmount, Time.deltaTime * smoothSpeed);
+            curValue = (int)temp;
+            displayText.text = curValue.ToString();
+            yield return null;
+        }
+        player.ModifyDaode(changeAmount);
+    }
 }

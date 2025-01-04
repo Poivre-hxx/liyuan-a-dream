@@ -83,7 +83,7 @@ public class ButtonAnPai : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        gameControl.SetObjectVisible(targetObject);
+        //gameControl.SetObjectVisible(targetObject);
 
         TimeControl();
 

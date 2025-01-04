@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1035710381}
   maxValue: 100
   smoothSpeed: 5
@@ -5702,7 +5702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1540855782}
   maxValue: 100
   smoothSpeed: 5
@@ -6772,7 +6772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 682723243}
   maxValue: 100
   smoothSpeed: 5
@@ -7193,7 +7193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1348103239}
   maxValue: 100
   smoothSpeed: 5
@@ -7770,7 +7770,43 @@ MonoBehaviour:
   gameControl: {fileID: 1626942597}
   targetObject: {fileID: 992525624}
   player: {fileID: 1626942599}
-  changecirles: []
+  changecirles:
+  - xianmu: 4
+    circleProcess: {fileID: 1718341209}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 3
+    circleProcess: {fileID: 1984244863}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 8
+    circleProcess: {fileID: 40858566}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 7
+    circleProcess: {fileID: 782737971}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 5
+    circleProcess: {fileID: 1491919098}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 1
+    circleProcess: {fileID: 943697149}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 2
+    circleProcess: {fileID: 1318383583}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 0
+    circleProcess: {fileID: 2090700918}
+    curFill: 0
+    targetFill: 0
+  - xianmu: 6
+    circleProcess: {fileID: 970562454}
+    curFill: 0
+    targetFill: 0
 --- !u!1 &1017043716
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,7 +9781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 505332325}
   maxValue: 100
   smoothSpeed: 5
@@ -11347,7 +11383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 502386635}
   maxValue: 100
   smoothSpeed: 5
@@ -12160,7 +12196,7 @@ MonoBehaviour:
   - {fileID: 1833988464}
   - {fileID: 1431615955}
   - {fileID: 1264333802}
-  initialVisibleObject: {fileID: 1264333802}
+  initialVisibleObject: {fileID: 1431615955}
 --- !u!4 &1626942598
 Transform:
   m_ObjectHideFlags: 0
@@ -12964,7 +13000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 776953353}
   maxValue: 100
   smoothSpeed: 5
@@ -14680,7 +14716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 1709227228}
   maxValue: 100
   smoothSpeed: 5
@@ -15685,7 +15721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 0}
+  buttonAnPai: {fileID: 1000747858}
   progressImage: {fileID: 2119373334}
   maxValue: 100
   smoothSpeed: 5
