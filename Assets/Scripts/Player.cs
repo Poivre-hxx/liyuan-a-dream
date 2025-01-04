@@ -42,6 +42,17 @@ public class AttributeInfo
 }
 
 [Serializable]
+public class AttributeChange
+{
+    public int daode_change;
+    public int chushi_change;
+    public int rongmao_change;
+    public int wencai_change;
+    public int tipo_change;
+    public int mingqi_change;
+}
+
+[Serializable]
 public class SkillInfo
 {
     public int four_Sing;
@@ -68,6 +79,9 @@ public class Player : MonoBehaviour
 
     [Header("属性值")]
     [SerializeField] private AttributeInfo attributeInfo;
+
+    [Header("属性值的变化值")]
+    [SerializeField] private AttributeChange attributeChange;
 
     [Header("技能值")]
     [SerializeField] private SkillInfo skillInfo;
@@ -100,6 +114,14 @@ public class Player : MonoBehaviour
     public int Wencai => attributeInfo.wencai;
     public int Tipo => attributeInfo.tipo;
     public int Mingqi => attributeInfo.mingqi;
+
+    // 访问属性变化
+    public int DaodeChange => attributeChange.daode_change;
+    public int ChushiChange => attributeChange.chushi_change;
+    public int RongmaoChange => attributeChange.rongmao_change;
+    public int WencaiChange => attributeChange.wencai_change;
+    public int TipoChange => attributeChange.tipo_change;
+    public int MingqiChange => attributeChange.mingqi_change;
 
     // 访问技能信息的属性
     public int FourSing => skillInfo.four_Sing;
@@ -155,6 +177,13 @@ public class Player : MonoBehaviour
     public void ModifyTipo(int amount) => attributeInfo.tipo = Mathf.Clamp(attributeInfo.tipo + amount, 0, 100);
     public void ModifyMingqi(int amount) => attributeInfo.mingqi = Mathf.Clamp(attributeInfo.mingqi + amount, 0, 100);
 
+    public void ModifyDaodeChange(int amount) => attributeChange.daode_change = amount;
+    public void ModifyChushiChange(int amount) => attributeChange.chushi_change = amount;
+    public void ModifyRongmaoChange(int amount) => attributeChange.rongmao_change = amount;
+    public void ModifyWencaiChange(int amount) => attributeChange.wencai_change = amount;
+    public void ModifyTipoChange(int amount) => attributeChange.tipo_change = amount;
+    public void ModifyMingqiChange(int amount) => attributeChange.mingqi_change = amount;
+
     public void ModifyFourSing(int amount) => skillInfo.four_Sing += amount;
     public void ModifyFourChant(int amount) => skillInfo.four_Chant += amount;
     public void ModifyFourDo(int amount) => skillInfo.four_Do += amount;
@@ -171,6 +200,7 @@ public class Player : MonoBehaviour
         mingshaInfo = new MingshaInfo();
         curMingshaEvent = new CurMingshaEvent();
         attributeInfo = new AttributeInfo();
+        attributeChange = new AttributeChange();
         skillInfo = new SkillInfo();
 
         ResetPlayerAge();
