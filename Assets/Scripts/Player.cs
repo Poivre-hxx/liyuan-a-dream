@@ -62,8 +62,8 @@ public class Player : MonoBehaviour
     [SerializeField] private SkillInfo skillInfo;
 
     [Header("Ê±¼ä")]
-    [SerializeField] private int Year;
-    [SerializeField] private Seasons season;
+    public int Year;
+    public Seasons season;
 
 
 

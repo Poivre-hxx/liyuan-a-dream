@@ -76,7 +76,7 @@ public class KebanSelect : MonoBehaviour
             }
             else if (Five_Foot)
             {
-                Debug.Log("choose five_Foot");
+                //Debug.Log("choose five_Foot");
                 anPaiControl.AddXianMu(XianMuNames.five_Foot);
             }
         }

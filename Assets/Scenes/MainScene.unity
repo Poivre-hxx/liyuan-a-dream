@@ -7672,7 +7672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000747855}
   - component: {fileID: 1000747857}
-  - component: {fileID: 1000747856}
+  - component: {fileID: 1000747858}
   m_Layer: 0
   m_Name: "A\u5B89\u6392_Train"
   m_TagString: Untagged
@@ -7695,19 +7695,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1264333803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1000747856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000747854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f328b0ba4b4ae6f43853f0255a4bf323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 2114648031}
 --- !u!212 &1000747857
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7760,6 +7747,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1000747858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000747854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad46ab6faad40e42ba6bbbf136bceb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameControl: {fileID: 1626942597}
+  targetObject: {fileID: 992525624}
+  player: {fileID: 1626942599}
 --- !u!1 &1017043716
 GameObject:
   m_ObjectHideFlags: 0

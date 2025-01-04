@@ -14,7 +14,7 @@ public class TimeControl : MonoBehaviour
         UpdateText();
     }
 
-    private void UpdateText()
+    public void UpdateText()
     {
         YearText.text = player.curYear.ToString();
         SeasonText.text = SeasonToChinese(player.curseason);
