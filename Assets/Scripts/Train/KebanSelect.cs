@@ -18,9 +18,12 @@ public class KebanSelect : MonoBehaviour
     [SerializeField] private bool Five_Magic;
     [SerializeField] private bool Five_Foot;
 
+    [SerializeField] private CircleProcess circle;
+
     void Start()
     {
         SetupCollider();
+        circle = GetComponentInChildren<CircleProcess>();
     }
 
     private void SetupCollider()
@@ -79,6 +82,7 @@ public class KebanSelect : MonoBehaviour
                 //Debug.Log("choose five_Foot");
                 anPaiControl.AddXianMu(XianMuNames.five_Foot);
             }
+            circle.Progress();
         }
         else
         {

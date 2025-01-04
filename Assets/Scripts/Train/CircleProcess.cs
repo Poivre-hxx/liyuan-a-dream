@@ -1,9 +1,11 @@
+using System.Collections;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 public class CircleProcess : MonoBehaviour
 {
     [SerializeField] private Player player;
+    [SerializeField] private ButtonAnPai buttonAnPai;
 
     [Header("Progress Bar Settings")]
     [SerializeField] private Image progressImage;
@@ -37,27 +39,152 @@ public class CircleProcess : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 第二回合之后的数据历史记录
+    /// </summary>
+    public void SetFillAmount()
+    {
+        foreach (var cirle in buttonAnPai.changecirles)
+        {
+            switch (cirle.xianmu)
+            {
+                case XianMuNames.four_Sing:
+                    if (show_four_Sing) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.four_Chant:
+                    if (show_four_Chant) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.four_Do:
+                    if (show_four_Do) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.four_Fight:
+                    if (show_four_Fight) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.five_Magic:
+                    if (show_Five_Magic) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.five_Hand:
+                    if (show_five_Hand) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.five_Eye:
+                    if (show_five_Eye) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.five_Foot:
+                    if (show_Five_Foot) progressImage.fillAmount = cirle.curFill;
+                    return;
+                case XianMuNames.five_Body:
+                    if (show_five_Body) progressImage.fillAmount = cirle.curFill;
+                    return;
+                default:
+                    return;
+
+
+            }
+        }
+    }
+
     private void Update()
     {
-        //UpdateProgress();
-        if (progressImage != null && Mathf.Abs(currentFillAmount - targetFillAmount) > 0.001f)
-        {
-            currentFillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, Time.deltaTime * smoothSpeed);
-            progressImage.fillAmount = currentFillAmount;
 
-            Debug.Log($"Current Fill Amount: {currentFillAmount}, Target Fill Amount: {targetFillAmount}");
-        }
     }
 
     public void Progress()
     {
+        if (player == null || progressImage == null) return;
+
         if (show_four_Sing)
         {
-            //totalValue += player.FourSing;
-            //selectedCount++;
-            //Debug.Log($"Four Sing: {player.FourSing}");
+            player.ModifyFourSing(Settings.SkillAmount);
+            Debug.Log($"Four Sing: {player.FourSing}");
+            targetFillAmount = player.FourSing / maxValue;
+            ModifycirlesList(XianMuNames.four_Sing, targetFillAmount);
+        }
+        else if (show_four_Chant)
+        {
+            player.ModifyFourChant(Settings.SkillAmount);
+            Debug.Log($"Four Chant: {player.FourChant}");
+            targetFillAmount = player.FourChant / maxValue;
+            ModifycirlesList(XianMuNames.four_Chant, targetFillAmount);
+        }
+        else if (show_four_Do)
+        {
+            player.ModifyFourDo(Settings.SkillAmount);
+            Debug.Log($"Four Do: {player.FourDo}");
+            targetFillAmount = player.FourDo / maxValue;
+            ModifycirlesList(XianMuNames.four_Do, targetFillAmount);
+        }
+        else if (show_four_Fight)
+        {
+            player.ModifyFourFight(Settings.SkillAmount);
+            Debug.Log($"Four Fight: {player.FourFight}");
+            targetFillAmount = player.FourFight / maxValue;
+            ModifycirlesList(XianMuNames.four_Fight, targetFillAmount);
+        }
+        else if (show_five_Hand)
+        {
+            player.ModifyFiveHand(Settings.SkillAmount);
+            Debug.Log($"Five Hand: {player.FiveHand}");
+            targetFillAmount = player.FiveHand / maxValue;
+            ModifycirlesList(XianMuNames.five_Hand, targetFillAmount);
+        }
+        else if (show_five_Eye)
+        {
+            player.ModifyFiveEye(Settings.SkillAmount);
+            Debug.Log($"Five Eye: {player.FiveEye}");
+            targetFillAmount = player.FiveEye / maxValue;
+            ModifycirlesList(XianMuNames.five_Eye, targetFillAmount);
+        }
+        else if (show_five_Body)
+        {
+            player.ModifyFiveBody(Settings.SkillAmount);
+            Debug.Log($"Five Body: {player.FiveBody}");
+            targetFillAmount = player.FiveBody / maxValue;
+            ModifycirlesList(XianMuNames.five_Body, targetFillAmount);
+        }
+        else if (show_Five_Magic)
+        {
+            player.ModifyFiveMagic(Settings.SkillAmount);
+            Debug.Log($"Five Magic: {player.FiveMagic}");
+            targetFillAmount = player.FiveMagic / maxValue;
+            ModifycirlesList(XianMuNames.five_Magic, targetFillAmount);
+        }
+        else if (show_Five_Foot)
+        {
+            player.ModifyFiveFoot(Settings.SkillAmount);
+            Debug.Log($"Five Foot: {player.FiveFoot}");
+            targetFillAmount = player.FiveMagic / maxValue;
+            ModifycirlesList(XianMuNames.five_Foot, targetFillAmount);
+        }
+        
+    }
+
+    private void ModifycirlesList(XianMuNames xianmu,float tar)
+    {
+        foreach (var cirle in buttonAnPai.changecirles)
+        {
+            if (cirle.xianmu == xianmu)
+            {
+                cirle.targetFill = tar;
+                break; 
+            }
         }
     }
+
+
+
+    public IEnumerator StartProgress(float cur,float tar)
+    {
+        while(progressImage != null && Mathf.Abs(cur - tar) > 0.001f)
+        {
+            cur = Mathf.Lerp(cur, tar, Time.deltaTime * smoothSpeed);
+            progressImage.fillAmount = cur;
+            yield return null;
+
+            Debug.Log($"Current Fill Amount: {cur}, Target Fill Amount: {tar}");
+        }
+        progressImage.fillAmount = tar;
+    }
+
 
     public void UpdateProgress()
     {

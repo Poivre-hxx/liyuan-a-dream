@@ -21,3 +21,18 @@ public enum Seasons
     winter
 }
 
+public class Settings
+{
+    public const int SkillAmount = 10;
+}
+
+[System.Serializable]
+public class cirles
+{
+    public XianMuNames xianmu;
+    public CircleProcess circleProcess;
+    public float curFill;
+    public float targetFill;
+}
+
+

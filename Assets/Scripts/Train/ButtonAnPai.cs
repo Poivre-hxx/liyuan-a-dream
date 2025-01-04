@@ -8,6 +8,9 @@ public class ButtonAnPai : MonoBehaviour
     [SerializeField] private GameObject targetObject;
     [SerializeField] private Player player;
 
+    //public Dictionary<float, float> cirleChange = new();
+    public List<cirles> changecirles = new();
+
     private BoxCollider2D boxCollider2D;
     
 
@@ -35,10 +38,12 @@ public class ButtonAnPai : MonoBehaviour
     {
         if (targetObject != null)
         {
-            //时间增加
-            TimeControl();
-            gameControl.SetObjectVisible(targetObject);
-            Debug.Log($"已经切换为: {targetObject.activeSelf}");
+
+            ////时间增加
+            ////TimeControl();
+            //gameControl.SetObjectVisible(targetObject);
+            //Debug.Log($"已经切换为: {targetObject.activeSelf}");
+            StartCoroutine(TrainChange());
         }
         else
         {
@@ -56,6 +61,23 @@ public class ButtonAnPai : MonoBehaviour
         else
         {
             player.season++;
+        }
+    }
+
+    IEnumerator TrainChange()
+    {
+        foreach(var cirle in changecirles)
+        {
+            yield return cirle.circleProcess.StartProgress(cirle.curFill, cirle.targetFill);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        gameControl.SetObjectVisible(targetObject);
+        TimeControl();
+
+        foreach(var cirle in changecirles)
+        {
+            cirle.curFill = cirle.targetFill;   
         }
     }
 }
