@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 1035710381}
   maxValue: 100
   smoothSpeed: 5
@@ -995,7 +995,7 @@ MonoBehaviour:
   four_Chant: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
   four_Do: {fileID: 21300000, guid: 7c15b8917aa30a547923f3b15e2d1104, type: 3}
   four_Fight: {fileID: 21300000, guid: 6ec2af6733d6ed74891b4e5db9398e45, type: 3}
-  five_Hand: {fileID: 21300000, guid: 3b68f8b84cc78c64fb4f8b6b3050cfac, type: 3}
+  five_Hand: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
   five_Eye: {fileID: 21300000, guid: 1bc7e102520fadb42a89e46e713bcad8, type: 3}
   five_Body: {fileID: 21300000, guid: 12d7c3a156cb7574ea943fa1d6af5b9d, type: 3}
   five_Magic: {fileID: 21300000, guid: 8d7a131d2fd65ca479a33669cade644d, type: 3}
@@ -5702,7 +5702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 1540855782}
   maxValue: 100
   smoothSpeed: 5
@@ -6772,7 +6772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 682723243}
   maxValue: 100
   smoothSpeed: 5
@@ -7129,15 +7129,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a9267a495f3e0eb4ba373b0145dde77f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0083333, y: 0.3625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &970562452
@@ -7193,7 +7193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 1348103239}
   maxValue: 100
   smoothSpeed: 5
@@ -7770,43 +7770,7 @@ MonoBehaviour:
   gameControl: {fileID: 1626942597}
   targetObject: {fileID: 992525624}
   player: {fileID: 1626942599}
-  changecirles:
-  - xianmu: 0
-    circleProcess: {fileID: 2090700918}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 1
-    circleProcess: {fileID: 943697149}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 2
-    circleProcess: {fileID: 1318383583}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 3
-    circleProcess: {fileID: 1984244863}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 4
-    circleProcess: {fileID: 1718341209}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 5
-    circleProcess: {fileID: 1491919098}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 6
-    circleProcess: {fileID: 970562454}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 7
-    circleProcess: {fileID: 782737971}
-    curFill: 0
-    targetFill: 0
-  - xianmu: 8
-    circleProcess: {fileID: 40858566}
-    curFill: 0
-    targetFill: 0
+  changecirles: []
 --- !u!1 &1017043716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8973,15 +8937,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7c15b8917aa30a547923f3b15e2d1104, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0083333, y: 0.3625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1211575996
@@ -9717,15 +9681,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0083333, y: 0.3625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1318383581
@@ -9781,7 +9745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 505332325}
   maxValue: 100
   smoothSpeed: 5
@@ -11383,7 +11347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 502386635}
   maxValue: 100
   smoothSpeed: 5
@@ -12237,6 +12201,9 @@ MonoBehaviour:
     mingsha_1: 
     mingsha_2: 
     mingsha_3: 
+    mingsha_4: 
+  curMingshaEvent:
+    mingsha_Event: 
   attributeInfo:
     daode: 1
     chushi: 1
@@ -12252,8 +12219,8 @@ MonoBehaviour:
     five_Hand: 0
     five_Eye: 0
     five_Body: 0
-    Five_Magic: 0
-    Five_Foot: 0
+    five_Magic: 0
+    five_Foot: 0
   Year: 0
   season: 0
 --- !u!1 &1650656394
@@ -12997,7 +12964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 776953353}
   maxValue: 100
   smoothSpeed: 5
@@ -13806,15 +13773,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6ec2af6733d6ed74891b4e5db9398e45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0083333, y: 0.3625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1860628594
@@ -14713,7 +14680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 1709227228}
   maxValue: 100
   smoothSpeed: 5
@@ -15718,7 +15685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1626942599}
-  buttonAnPai: {fileID: 1000747858}
+  buttonAnPai: {fileID: 0}
   progressImage: {fileID: 2119373334}
   maxValue: 100
   smoothSpeed: 5
