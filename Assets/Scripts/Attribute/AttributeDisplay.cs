@@ -58,7 +58,7 @@ public class AttributeDisplay : MonoBehaviour
             displayContent += $"{player.Mingqi}\n";
 
         if (Shensha)
-            displayContent += $"{player.Mingsha_0}、{player.Mingsha_1}、{player.Mingsha_2}、{player.Mingsha_3}\n";
+            displayContent += $"{player.Mingsha_0}、{player.Mingsha_1}、{player.Mingsha_2}、{player.Mingsha_3}、{player.Mingsha_4}\n";
 
         if (displayContent.EndsWith("\n"))
             displayContent = displayContent.TrimEnd('\n');

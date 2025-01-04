@@ -20,7 +20,15 @@ public class MingshaInfo
     public string mingsha_1;
     public string mingsha_2;
     public string mingsha_3;
+    public string mingsha_4;
 }
+
+[Serializable]
+public class CurMingshaEvent
+{
+    public string mingsha_Event;
+}
+
 
 [Serializable]
 public class AttributeInfo
@@ -43,8 +51,8 @@ public class SkillInfo
     public int five_Hand;
     public int five_Eye;
     public int five_Body;
-    public int Five_Magic;
-    public int Five_Foot;
+    public int five_Magic;
+    public int five_Foot;
 }
 
 public class Player : MonoBehaviour
@@ -54,6 +62,9 @@ public class Player : MonoBehaviour
 
     [Header("命煞")]
     [SerializeField] private MingshaInfo mingshaInfo;
+
+    [Header("当前的命煞事件")]
+    [SerializeField] private CurMingshaEvent curMingshaEvent;
 
     [Header("属性值")]
     [SerializeField] private AttributeInfo attributeInfo;
@@ -77,6 +88,10 @@ public class Player : MonoBehaviour
     public string Mingsha_1 => mingshaInfo.mingsha_1;
     public string Mingsha_2 => mingshaInfo.mingsha_2;
     public string Mingsha_3 => mingshaInfo.mingsha_3;
+    public string Mingsha_4 => mingshaInfo.mingsha_4;
+
+    // 访问当前的随机事件
+    public string Mingsha_event => curMingshaEvent.mingsha_Event;
 
     // 访问属性信息的属性
     public int Daode => attributeInfo.daode;
@@ -94,8 +109,8 @@ public class Player : MonoBehaviour
     public int FiveHand => skillInfo.five_Hand;
     public int FiveEye => skillInfo.five_Eye;
     public int FiveBody => skillInfo.five_Body;
-    public int FiveMagic => skillInfo.Five_Magic;
-    public int FiveFoot => skillInfo.Five_Foot;
+    public int FiveMagic => skillInfo.five_Magic;
+    public int FiveFoot => skillInfo.five_Foot;
 
     //访问年份
     public int curYear => Year;
@@ -119,20 +134,26 @@ public class Player : MonoBehaviour
         playerInfo.birD = day;
         playerInfo.birH = hour;
     }
-    public void SetMingsha(string mingsha_0, string mingsha_1, string mingsha_2, string mingsha_3)
+    public void SetMingsha(string mingsha_0, string mingsha_1, string mingsha_2, string mingsha_3, string mingsha_4)
     {
         mingshaInfo.mingsha_0 = mingsha_0;
         mingshaInfo.mingsha_1 = mingsha_1;
         mingshaInfo.mingsha_2 = mingsha_2;
         mingshaInfo.mingsha_3 = mingsha_3;
+        mingshaInfo.mingsha_4 = mingsha_4;
     }
 
-    public void ModifyDaode(int amount) => attributeInfo.daode += amount;
-    public void ModifyChushi(int amount) => attributeInfo.chushi += amount;
-    public void ModifyRongmao(int amount) => attributeInfo.rongmao += amount;
-    public void ModifyWencai(int amount) => attributeInfo.wencai += amount;
-    public void ModifyTipo(int amount) => attributeInfo.tipo += amount;
-    public void ModifyMingqi(int amount) => attributeInfo.mingqi += amount;
+    public void SetCurMingshaEvent(string curEvent)
+    {
+        curMingshaEvent.mingsha_Event = curEvent;
+    }
+
+    public void ModifyDaode(int amount) => attributeInfo.daode = Mathf.Clamp(attributeInfo.daode + amount, 0, 100);
+    public void ModifyChushi(int amount) => attributeInfo.chushi += Mathf.Clamp(attributeInfo.chushi + amount, 0, 100);
+    public void ModifyRongmao(int amount) => attributeInfo.rongmao = Mathf.Clamp(attributeInfo.rongmao + amount, 0, 100);
+    public void ModifyWencai(int amount) => attributeInfo.wencai = Mathf.Clamp(attributeInfo.wencai + amount, 0, 100);
+    public void ModifyTipo(int amount) => attributeInfo.tipo = Mathf.Clamp(attributeInfo.tipo + amount, 0, 100);
+    public void ModifyMingqi(int amount) => attributeInfo.mingqi = Mathf.Clamp(attributeInfo.mingqi + amount, 0, 100);
 
     public void ModifyFourSing(int amount) => skillInfo.four_Sing += amount;
     public void ModifyFourChant(int amount) => skillInfo.four_Chant += amount;
@@ -141,12 +162,19 @@ public class Player : MonoBehaviour
     public void ModifyFiveHand(int amount) => skillInfo.five_Hand += amount;
     public void ModifyFiveEye(int amount) => skillInfo.five_Eye += amount;
     public void ModifyFiveBody(int amount) => skillInfo.five_Body += amount;
-    public void ModifyFiveMagic(int amount) => skillInfo.Five_Magic += amount;
-    public void ModifyFiveFoot(int amount) => skillInfo.Five_Foot += amount;
+    public void ModifyFiveMagic(int amount) => skillInfo.five_Magic += amount;
+    public void ModifyFiveFoot(int amount) => skillInfo.five_Foot += amount;
 
     private void Awake()
     {
+        playerInfo = new PlayerInfo();
+        mingshaInfo = new MingshaInfo();
+        curMingshaEvent = new CurMingshaEvent();
+        attributeInfo = new AttributeInfo();
+        skillInfo = new SkillInfo();
+
         ResetPlayerAge();
+        ResetCurEvent();
         ResetAttributes();
         ResetSkills();
         Year = 1;
@@ -156,6 +184,11 @@ public class Player : MonoBehaviour
     public void ResetPlayerAge()
     {
         playerInfo.age = 7;
+    }
+
+    public void ResetCurEvent()
+    {
+        curMingshaEvent.mingsha_Event = "";
     }
 
     public void ResetAttributes()
@@ -177,7 +210,7 @@ public class Player : MonoBehaviour
         skillInfo.five_Hand = 0;
         skillInfo.five_Eye = 0;
         skillInfo.five_Body = 0;
-        skillInfo.Five_Magic = 0;
-        skillInfo.Five_Foot = 0;
+        skillInfo.five_Magic = 0;
+        skillInfo.five_Foot = 0;
     }
 }

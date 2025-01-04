@@ -121,6 +121,7 @@ public class SetAttribute : MonoBehaviour
                        {{""type"": ""ÃüÉ·Ãû³Æ""}},
                        {{""type"": ""ÃüÉ·Ãû³Æ""}},
                        {{""type"": ""ÃüÉ·Ãû³Æ""}},
+                       {{""type"": ""ÃüÉ·Ãû³Æ""}},
                        {{""type"": ""ÃüÉ·Ãû³Æ""}}
                    ],
                    ""attributes"": {{
@@ -174,7 +175,6 @@ public class SetAttribute : MonoBehaviour
     {
         try
         {
-            // ÌáÈ¡JSON²¿·Ö
             int jsonStart = responseJson.IndexOf('{');
             int jsonEnd = responseJson.LastIndexOf('}') + 1;
 
@@ -189,13 +189,13 @@ public class SetAttribute : MonoBehaviour
 
             JObject response = JObject.Parse(jsonPart);
 
-            string[] mingshas = new string[4];
-            for (int i = 0; i < 4; i++)
+            string[] mingshas = new string[5];
+            for (int i = 0; i <= 4; i++)
             {
                 mingshas[i] = response["mingshas"][i]["type"].ToString();
             }
 
-            player.SetMingsha(mingshas[0], mingshas[1], mingshas[2], mingshas[3]);
+            player.SetMingsha(mingshas[0], mingshas[1], mingshas[2], mingshas[3], mingshas[4]);
 
             var attrs = response["attributes"];
             player.ModifyDaode(attrs["daode"].Value<int>());
