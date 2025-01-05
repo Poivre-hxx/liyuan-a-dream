@@ -122,19 +122,19 @@ public class ButtonAnPai : MonoBehaviour
 
         switch (playerAge)
         {
-            case 0:
+            case 1:
                 curMingsha = player.Mingsha_0;
                 break;
-            case 1:
+            case 2:
                 curMingsha = player.Mingsha_1;
                 break;
-            case 2:
+            case 3:
                 curMingsha = player.Mingsha_2;
                 break;
-            case 3:
+            case 4:
                 curMingsha = player.Mingsha_3;
                 break;
-            case 4:
+            case 5:
                 curMingsha = player.Mingsha_4;
                 break;
             default:
@@ -162,20 +162,23 @@ public class ButtonAnPai : MonoBehaviour
         dialogueData.Add(new Dictionary<string, string>
         {
             {"role", "user"},
-            {"content", $@"根据以下信息生成一个随机事件，要求：
-                1. 事件必须符合角色当年的命煞
-                2. 事件描述必须完全使用中文
-                3. 只描述事件本身，不要包含任何特殊符号或英文
-                4. 字数限制在100-250字之间
+            {"content", $@"根据以下信息生成一个随机事件，要求如下：
+                1. 事件必须符合角色当年的命煞，但是故事中不要提及具体的命煞名字
+                2. 事件描述必须完全使用中文，不要出现数字等符号
+                3. 请不要包含任何特殊符号或英文
+                4. 字数限制在120-150字之间
+                5. 所述故事请符合中国这个年代的时代背景
+                6. 请以第一人称“我”的视角叙述这个故事，是一个10岁左右，已经拜师学习京剧，努力成为“武生”的孩子
         
                 玩家信息：
                 - 名字：{player.PlayerName}
                 - 命煞：{curMingsha}
+                - 事件的发生时间：{player.BirthDateYear}
         
                 请按照以下格式回复：
                 {{
                     ""event"": {{
-                        ""description"": ""<在这里填写纯中文的事件描述>""
+                        ""description"": ""<在这里填写中文描述的事件>""
                     }}
                 }}"}
         });
@@ -227,7 +230,7 @@ public class ButtonAnPai : MonoBehaviour
                 return;
             }
 
-            description = CleanDescription(description);
+            //description = CleanDescription(description);
             Debug.Log($"清理后的描述: {description}");
 
             if (player != null)

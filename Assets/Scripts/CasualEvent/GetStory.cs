@@ -12,19 +12,19 @@ public class GetStory : MonoBehaviour
 
         switch (playerAge)
         {
-            case 0:
+            case 1:
                 curMingsha = player.Mingsha_0;
                 break;
-            case 1:
+            case 2:
                 curMingsha = player.Mingsha_1;
                 break;
-            case 2:
+            case 3:
                 curMingsha = player.Mingsha_2;
                 break;
-            case 3:
+            case 4:
                 curMingsha = player.Mingsha_3;
                 break;
-            case 4:
+            case 5:
                 curMingsha = player.Mingsha_4;
                 break;
             default:

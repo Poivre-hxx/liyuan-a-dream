@@ -23,7 +23,7 @@ public enum Seasons
 
 public class Settings
 {
-    public const int SkillAmount = 10;
+    public const int SkillAmount = 4;
 }
 
 [System.Serializable]

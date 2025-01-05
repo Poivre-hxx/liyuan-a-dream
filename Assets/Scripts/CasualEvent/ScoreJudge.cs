@@ -78,6 +78,8 @@ public class ScoreJudge : MonoBehaviour
         Debug.Log("已按下");
         if (isProcessing || string.IsNullOrEmpty(responseInput.text)) yield break;
 
+        string inputText = responseInput.text;
+        responseInput.text = "";
         isProcessing = true;
         yield return StartCoroutine(SendToSiliconCoroutine());
 
@@ -139,6 +141,7 @@ public class ScoreJudge : MonoBehaviour
         uwr.downloadHandler = new DownloadHandlerBuffer();
         uwr.SetRequestHeader("Content-Type", "application/json");
         uwr.SetRequestHeader("Authorization", $"Bearer {apiKey}");
+        responseInput.text = "";
 
         // 等待API请求完成
         yield return uwr.SendWebRequest();
