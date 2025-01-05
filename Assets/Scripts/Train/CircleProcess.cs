@@ -161,7 +161,7 @@ public class CircleProcess : MonoBehaviour
         {
             player.ModifyFiveFoot(Settings.SkillAmount);
             Debug.Log($"Five Foot: {player.FiveFoot}");
-            targetFillAmount = player.FiveMagic / maxValue;
+            targetFillAmount = player.FiveFoot / maxValue;
             ModifycirlesList(XianMuNames.five_Foot, targetFillAmount);
         }
         
