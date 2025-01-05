@@ -168,7 +168,7 @@ public class ButtonAnPai : MonoBehaviour
         dialogueData.Add(new Dictionary<string, string>
         {
             {"role", "user"},
-            {"content", $@"根据以下信息生成一个随机事件，要求事件符合角色当年的命煞，且尽可能详细，但是不要描述这个事件的结果（结局），字数在250字左右：
+            {"content", $@"根据以下信息生成一个随机事件，要求事件符合角色当年的命煞，且尽可能详细，可以是积极的事情、也可以是消极的事件。但是，请不要描述这个事件的结果（也就是结局），字数控制在250字，谢谢您：
                 玩家名字：{player.PlayerName}
                 命煞：{curMingsha}
 

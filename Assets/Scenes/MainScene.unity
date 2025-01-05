@@ -6916,7 +6916,7 @@ MonoBehaviour:
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -14761,7 +14761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: "\u8BF7\u8F93\u5165\u60A8\u7684\u6240\u89C1\u6240\u95FB\u3002\u3002\u3002\u3002"
 --- !u!222 &1649099042
 CanvasRenderer:
   m_ObjectHideFlags: 0
