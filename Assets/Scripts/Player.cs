@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
     public string Teacher => playerInfo.teacher;
     public int Age => playerInfo.age;
     public string BirthDateTime => $"{playerInfo.birY}年{playerInfo.birM}月{playerInfo.birD}日";
+    public int BirthDateYear => playerInfo.birY;
 
     // 访问命煞
     public string Mingsha_0 => mingshaInfo.mingsha_0;
