@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 public class ButtonAnPai : MonoBehaviour
 {
     [SerializeField] private GameControl gameControl;
     [SerializeField] private GameObject targetObject;
     [SerializeField] private Player player;
-    private GetStory getStory;
 
     //public Dictionary<float, float> cirleChange = new();
     public List<cirles> changecirles = new();
@@ -77,25 +77,19 @@ public class ButtonAnPai : MonoBehaviour
 
     IEnumerator TrainChange()
     {
-        foreach(var cirle in changecirles)
+        foreach (var cirle in changecirles)
         {
             yield return cirle.circleProcess.StartProgress(cirle.curFill, cirle.targetFill);
         }
-
         yield return new WaitForSeconds(0.5f);
-
         TimeControl();
-
-        foreach(var cirle in changecirles)
+        foreach (var cirle in changecirles)
         {
-            cirle.curFill = cirle.targetFill;   
+            cirle.curFill = cirle.targetFill;
         }
-
-        GenerateEvent();
-
+        yield return StartCoroutine(GenerateEvent());
+        yield return new WaitForSeconds(2f);
         gameControl.SetObjectVisible(targetObject);
-
-
     }
     [System.Serializable]
     private class ApiResponse
@@ -149,10 +143,10 @@ public class ButtonAnPai : MonoBehaviour
         }
     }
 
-    public void GenerateEvent()
+    public IEnumerator GenerateEvent()
     {
         UpdateCurrentMingsha();
-        StartCoroutine(SendToSiliconCoroutine());
+        yield return StartCoroutine(SendToSiliconCoroutine());
     }
 
     private IEnumerator SendToSiliconCoroutine()
@@ -168,17 +162,20 @@ public class ButtonAnPai : MonoBehaviour
         dialogueData.Add(new Dictionary<string, string>
         {
             {"role", "user"},
-            {"content", $@"根据以下信息生成一个随机事件，要求事件符合角色当年的命煞，且尽可能详细，可以是积极的事情、也可以是消极的事件。但是，请不要描述这个事件的结果（也就是结局），字数控制在250字，谢谢您：
-                玩家名字：{player.PlayerName}
-                命煞：{curMingsha}
-
-                Please respond in the format:
+            {"content", $@"根据以下信息生成一个随机事件，要求：
+                1. 事件必须符合角色当年的命煞
+                2. 事件描述必须完全使用中文
+                3. 只描述事件本身，不要包含任何特殊符号或英文
+                4. 字数限制在100-250字之间
+        
+                玩家信息：
+                - 名字：{player.PlayerName}
+                - 命煞：{curMingsha}
+        
+                请按照以下格式回复：
                 {{
                     ""event"": {{
-                        ""description"": ""事件描述"",
-                        ""impact"": [
-                            {{""event"": ""具体的事件""}}
-                        ]
+                        ""description"": ""<在这里填写纯中文的事件描述>""
                     }}
                 }}"}
         });
@@ -218,17 +215,63 @@ public class ButtonAnPai : MonoBehaviour
     {
         try
         {
+            responseJson = CleanJsonResponse(responseJson);
+            Debug.Log($"清理后的 JSON: {responseJson}");
+
             JObject response = JObject.Parse(responseJson);
 
-            string description = response["event"]["description"].ToString();
+            string description = response["event"]["description"]?.ToString();
+            if (string.IsNullOrEmpty(description))
+            {
+                Debug.LogError("无法获取有效的事件描述");
+                return;
+            }
 
-            Debug.Log($"生成的事件: {description}");
-            getStory.UpdateStoryText();
-            player.SetCurMingshaEvent(description);
+            description = CleanDescription(description);
+            Debug.Log($"清理后的描述: {description}");
+
+            if (player != null)
+            {
+                player.SetCurMingshaEvent(description);
+            }
         }
         catch (Exception e)
         {
-            Debug.LogError($"解析响应时出错: {e.Message}\n原始响应:\n{responseJson}");
+            Debug.LogError($"解析响应时出错: {e.Message}\n异常堆栈: {e.StackTrace}\n原始响应:\n{responseJson}");
+        }
+    }
+
+    private string CleanJsonResponse(string json)
+    {
+        try
+        {
+            if (!json.TrimEnd().EndsWith("}"))
+            {
+                json = json.Split(new[] { ']' }, StringSplitOptions.RemoveEmptyEntries)[0] + "\"}}}";
+            }
+            return json;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"清理 JSON 时出错: {ex.Message}");
+            return json;
+        }
+    }
+
+    private string CleanDescription(string description)
+    {
+        try
+        {
+            description = Regex.Replace(description, @"[\(\)_\[\]{}]", " ");
+            description = Regex.Replace(description, @"[^\u4e00-\u9fa5。，！？、；：""'']+", " ");
+            description = Regex.Replace(description, @"\s+", " ").Trim();
+
+            return description;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"清理描述时出错: {ex.Message}");
+            return "描述有错误";
         }
     }
 }
