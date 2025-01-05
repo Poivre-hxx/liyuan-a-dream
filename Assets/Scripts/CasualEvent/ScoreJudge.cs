@@ -68,6 +68,11 @@ public class ScoreJudge : MonoBehaviour
         }
     }
 
+    public void HandleEvents()
+    {
+        StartCoroutine(JudgeResponse());
+    }
+
     IEnumerator JudgeResponse()
     {
         Debug.Log("已按下");
@@ -97,13 +102,13 @@ public class ScoreJudge : MonoBehaviour
                 问题：{promptText.text}
                 回答：{responseInput.text}
                 
-                请根据回答的内容判断以下六个属性应该如何变化，变化范围为-5到5：
+                请根据回答的内容判断以下六个属性应该如何变化，变化范围为-10到10，变化幅度尽量大一些，谢谢您了：
                 - 道德 (反映道德品质)
                 - 出世 (反映处世能力)
                 - 容貌 (反映外在形象)
                 - 文才 (反映文学才能)
                 - 体魄 (反映身体素质)
-                - 命气 (反映运势变化)
+                - 名气 (反映运势变化)
 
                 请返回json的格式:
                 {{

@@ -12,6 +12,7 @@ public class ButtonAnPai : MonoBehaviour
     [SerializeField] private GameControl gameControl;
     [SerializeField] private GameObject targetObject;
     [SerializeField] private Player player;
+    private GetStory getStory;
 
     //public Dictionary<float, float> cirleChange = new();
     public List<cirles> changecirles = new();
@@ -83,8 +84,6 @@ public class ButtonAnPai : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        //gameControl.SetObjectVisible(targetObject);
-
         TimeControl();
 
         foreach(var cirle in changecirles)
@@ -92,8 +91,11 @@ public class ButtonAnPai : MonoBehaviour
             cirle.curFill = cirle.targetFill;   
         }
 
-        //生成随机事件
         GenerateEvent();
+
+        gameControl.SetObjectVisible(targetObject);
+
+
     }
     [System.Serializable]
     private class ApiResponse
@@ -221,6 +223,7 @@ public class ButtonAnPai : MonoBehaviour
             string description = response["event"]["description"].ToString();
 
             Debug.Log($"生成的事件: {description}");
+            getStory.UpdateStoryText();
             player.SetCurMingshaEvent(description);
         }
         catch (Exception e)

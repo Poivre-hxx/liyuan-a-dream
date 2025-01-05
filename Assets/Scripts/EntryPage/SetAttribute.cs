@@ -80,7 +80,7 @@ public class SetAttribute : MonoBehaviour
 
     private void UpdatePlayerInfo()
     {
-        string newName = nameInput.text.Replace("\n", "");
+        string newName = 'Со'+nameInput.text.Replace("\n", "");
         string teacherName = teacherInput.text.Replace("\n", "");
         player.SetPlayerName(newName, teacherName);
 
