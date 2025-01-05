@@ -162,15 +162,19 @@ public class ScoreJudge : MonoBehaviour
         try
         {
             JObject response = JObject.Parse(responseJson);
-            var attrs = response["attributes"];
+            Debug.Log($"Player set Attribute{response}");
+            player.AttributeResponse = response;
+
+            //在attribute界面修改
+            //var attrs = response["attributes"];
 
             // 修改玩家属性
-            player.ModifyDaodeChange(attrs["daode"].Value<int>());
-            player.ModifyChushiChange(attrs["chushi"].Value<int>());
-            player.ModifyRongmaoChange(attrs["rongmao"].Value<int>());
-            player.ModifyWencaiChange(attrs["wencai"].Value<int>());
-            player.ModifyTipoChange(attrs["tipo"].Value<int>());
-            player.ModifyMingqiChange(attrs["mingqi"].Value<int>());
+            //player.ModifyDaodeChange(attrs["daode"].Value<int>());
+            //player.ModifyChushiChange(attrs["chushi"].Value<int>());
+            //player.ModifyRongmaoChange(attrs["rongmao"].Value<int>());
+            //player.ModifyWencaiChange(attrs["wencai"].Value<int>());
+            //player.ModifyTipoChange(attrs["tipo"].Value<int>());
+            //player.ModifyMingqiChange(attrs["mingqi"].Value<int>());
 
             Debug.Log($"生成完毕");
 

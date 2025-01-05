@@ -26,17 +26,21 @@ public class AttributeDisplay : MonoBehaviour
     public bool autoRefresh = true;
     private float smoothSpeed = 1f;
 
+    private JObject response = new();
+
     private void OnEnable()
     {
-        Debug.Log("do this");
+        response = player.AttributeResponse;
+        //player.AttributeResponse = null; 返回时清空
         //只有随机事件后会产生
-        if(player.AttributeResponse != null)
+        if (response != null)
         {
-            ChangeAttribute(player.AttributeResponse);
-            player.AttributeResponse = null;
+            Debug.Log("show Coroutine");
+            StartCoroutine(ChangeAttribute(response));
         }
         else
         {
+            Debug.Log("normal show");
             UpdateDisplay();
         }
     }
@@ -104,35 +108,68 @@ public class AttributeDisplay : MonoBehaviour
     /// 随机时间后的增减
     /// </summary>
     /// <param name="AttributeResponse"></param>
-    public void ChangeAttribute(JObject AttributeResponse )
+    IEnumerator ChangeAttribute(JObject AttributeResponse )
     {
-
+        UpdateDisplay();
         var attrs = AttributeResponse["attributes"];
-
+        Debug.Log($"attrs:{attrs}");
         //道德
-        if (Daode) StartCoroutine(changeNum(attrs["daode"].Value<int>(), player.Daode));
+        if (Daode)
+        {
+            yield return changeNum(attrs["daode"].Value<int>(), player.Daode);
+            player.ModifyDaode(attrs["daode"].Value<int>());
+        }
+
+       
         //处世
-        if (Chushi) StartCoroutine(changeNum(attrs["chushi"].Value<int>(), player.Chushi));
+        if (Chushi)
+        {
+            yield return changeNum(attrs["chushi"].Value<int>(), player.Chushi);
+            player.ModifyChushi(attrs["chushi"].Value<int>());
+        }
+   
         //容貌
-        if (Rongmao) StartCoroutine(changeNum(attrs["rongmao"].Value<int>(), player.Rongmao));
+        if (Rongmao)
+        {
+            yield return changeNum(attrs["rongmao"].Value<int>(), player.Rongmao);
+            player.ModifyRongmao(attrs["rongmao"].Value<int>());
+        }
+            
+        
         //文采
-        if (Wencai) StartCoroutine(changeNum(attrs["wencai"].Value<int>(), player.Wencai ));
+        if (Wencai)
+        {
+            yield return changeNum(attrs["wencai"].Value<int>(), player.Wencai);
+            player.ModifyWencai(attrs["wencai"].Value<int>());
+        }
+            
+       
         //体魄
-        if (Tipo) StartCoroutine(changeNum(attrs["tipo"].Value<int>(), player.Tipo));
+        if (Tipo)
+        {
+            yield return changeNum(attrs["tipo"].Value<int>(), player.Tipo);
+            player.ModifyTipo(attrs["tipo"].Value<int>());
+        }
+
         //名气
-        if (Mingqi) StartCoroutine(changeNum(attrs["mingqi"].Value<int>(), player.Mingqi));
+        if (Mingqi)
+        {
+            yield return changeNum(attrs["mingqi"].Value<int>(), player.Mingqi);
+            player.ModifyMingqi(attrs["mingqi"].Value<int>());
+        }
     }
 
     IEnumerator changeNum(int changeAmount,int oldValue)
     {
         int curValue = oldValue;
-        float temp;
-        while (!Mathf.Approximately(curValue, oldValue + changeAmount)){
-            temp = Mathf.Lerp(curValue, oldValue + changeAmount, Time.deltaTime * smoothSpeed);
-            curValue = (int)temp;
+        Debug.Log("Start attribute change Coroutine");
+        while (curValue <= oldValue + changeAmount){
+            Debug.Log(curValue);
+            curValue++;
             displayText.text = curValue.ToString();
-            yield return null;
+            yield return new WaitForSeconds(0.2f);
         }
-        player.ModifyDaode(changeAmount);
+        curValue = oldValue + changeAmount;
+        displayText.text = curValue.ToString();
     }
 }

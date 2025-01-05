@@ -1145,7 +1145,7 @@ MonoBehaviour:
   four_Chant: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
   four_Do: {fileID: 21300000, guid: 7c15b8917aa30a547923f3b15e2d1104, type: 3}
   four_Fight: {fileID: 21300000, guid: 6ec2af6733d6ed74891b4e5db9398e45, type: 3}
-  five_Hand: {fileID: 21300000, guid: 1880f7454f22d9e4999e8c2bd153cb7b, type: 3}
+  five_Hand: {fileID: 21300000, guid: 3b68f8b84cc78c64fb4f8b6b3050cfac, type: 3}
   five_Eye: {fileID: 21300000, guid: 1bc7e102520fadb42a89e46e713bcad8, type: 3}
   five_Body: {fileID: 21300000, guid: 12d7c3a156cb7574ea943fa1d6af5b9d, type: 3}
   five_Magic: {fileID: 21300000, guid: 8d7a131d2fd65ca479a33669cade644d, type: 3}
@@ -3271,7 +3271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &411977966
 Transform:
   m_ObjectHideFlags: 0
@@ -9972,10 +9972,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1142372795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd128d7578e243b47b5725b97f8ceee7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5994b759056dd3c49a35d4370e6d87c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1833988464}
+  player: {fileID: 1626942599}
 --- !u!1 &1148042332
 GameObject:
   m_ObjectHideFlags: 0
@@ -11324,7 +11325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1264333803
 Transform:
   m_ObjectHideFlags: 0

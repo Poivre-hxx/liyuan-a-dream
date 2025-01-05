@@ -26,7 +26,7 @@ public class CircleProcess : MonoBehaviour
     //private float currentFillAmount = 0f;
     private float targetFillAmount = 0f;
 
-    private void Start()
+    private void Awake()
     {
         if (progressImage != null)
         {
@@ -34,9 +34,18 @@ public class CircleProcess : MonoBehaviour
             progressImage.fillMethod = Image.FillMethod.Radial360;
             progressImage.fillOrigin = (int)Image.Origin360.Top;
             progressImage.fillClockwise = true;
-            progressImage.fillAmount = 0f; 
+            progressImage.fillAmount = 0f;
         }
+    }
 
+    private void OnEnable()
+    {
+        SetFillAmount();
+    }
+
+    private void Start()
+    {
+        
     }
 
     /// <summary>

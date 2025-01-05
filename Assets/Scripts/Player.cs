@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
     }
 
     public void ModifyDaode(int amount) => attributeInfo.daode = Mathf.Clamp(attributeInfo.daode + amount, 0, 100);
-    public void ModifyChushi(int amount) => attributeInfo.chushi += Mathf.Clamp(attributeInfo.chushi + amount, 0, 100);
+    public void ModifyChushi(int amount) => attributeInfo.chushi = Mathf.Clamp(attributeInfo.chushi + amount, 0, 100);
     public void ModifyRongmao(int amount) => attributeInfo.rongmao = Mathf.Clamp(attributeInfo.rongmao + amount, 0, 100);
     public void ModifyWencai(int amount) => attributeInfo.wencai = Mathf.Clamp(attributeInfo.wencai + amount, 0, 100);
     public void ModifyTipo(int amount) => attributeInfo.tipo = Mathf.Clamp(attributeInfo.tipo + amount, 0, 100);

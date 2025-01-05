@@ -9,6 +9,11 @@ public class TimeControl : MonoBehaviour
     public Text YearText;
     public Text SeasonText;
 
+    private void OnEnable()
+    {
+        UpdateText();
+    }
+
     private void Start()
     {
         UpdateText();

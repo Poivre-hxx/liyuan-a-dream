@@ -19,6 +19,18 @@ public class AnPaiControl : MonoBehaviour
     [SerializeField] private Sprite five_Magic;
     [SerializeField] private Sprite five_Foot;
 
+    private void OnEnable()
+    {
+        if(renderers.Count > 0)
+        {
+            foreach(var renderer in renderers)
+            {
+                renderer.sprite = null;
+            }
+        }
+        LableImage.Clear();
+    }
+
     private void Start()
     {
         for(int i = 0; i < KuangObjects.Count; i++)
@@ -80,6 +92,10 @@ public class AnPaiControl : MonoBehaviour
             if(LableImage[i] != null)
             {
                 renderers[i].sprite = LableImage[i];
+            }
+            else
+            {
+                renderers[i].sprite = null;
             }
 
         }
