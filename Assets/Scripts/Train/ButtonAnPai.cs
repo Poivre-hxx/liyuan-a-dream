@@ -75,6 +75,10 @@ public class ButtonAnPai : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 这里改变circle，然后选择进入唱念做打，不要 yield return StartCoroutine(GenerateEvent());
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TrainChange()
     {
         foreach (var cirle in changecirles)
