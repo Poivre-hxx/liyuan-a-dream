@@ -51,8 +51,9 @@
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
-
-      var buildUrl = "./Build";
+      
+      var buildUrl = "https://poivre-hxx.github.io/liyuan-a-dream/Build";
+      
       var loaderUrl = buildUrl + "/liyuanadream.loader.js";
       var config = {
         dataUrl: buildUrl + "/liyuanadream.data.gz",
@@ -103,7 +104,7 @@
 
       function unityShowBanner(msg, type) {
         // 简化错误显示
-        if (type === 'error') alert(msg);
+        if (type === 'error') alert(message);
       }
     </script>
   </body>
