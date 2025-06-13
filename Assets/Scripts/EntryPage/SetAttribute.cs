@@ -99,7 +99,7 @@ public class SetAttribute : MonoBehaviour
         if (targetObject != null && gameControl != null)
         {
             gameControl.SetObjectVisible(targetObject);
-            Debug.Log($"切换到场景: {targetObject.name}");
+            //Debug.Log($"切换到场景: {targetObject.name}");
         }
         else
         {
@@ -143,7 +143,7 @@ public class SetAttribute : MonoBehaviour
 
         var payload = new
         {
-            model = "meta-llama/Llama-3.3-70B-Instruct",
+            model = "deepseek-ai/DeepSeek-V3",
             messages = dialogueData,
             stream = false
         };
@@ -162,7 +162,7 @@ public class SetAttribute : MonoBehaviour
         {
             ApiResponse apiResponse = JsonUtility.FromJson<ApiResponse>(uwr.downloadHandler.text);
             string responseJson = apiResponse.choices[0].message.content;
-            Debug.Log(responseJson);    
+           // Debug.Log(responseJson);    
             ProcessResponse(responseJson);
         }
         else
@@ -185,10 +185,10 @@ public class SetAttribute : MonoBehaviour
             }
 
             string jsonPart = responseJson.Substring(jsonStart, jsonEnd - jsonStart);
-            Debug.Log($"提取的JSON: {jsonPart}");
+            //Debug.Log($"提取的JSON: {jsonPart}");
 
             JObject response = JObject.Parse(jsonPart);
-            Debug.Log($"response: {response}");
+            //Debug.Log($"response: {response}");
 
             string[] mingshas = new string[5];
             for (int i = 0; i <= 4; i++)
@@ -206,8 +206,8 @@ public class SetAttribute : MonoBehaviour
             player.ModifyTipo(attrs["tipo"].Value<int>());
             player.ModifyMingqi(attrs["mingqi"].Value<int>());
 
-            Debug.Log($"命煞: {string.Join(", ", mingshas)}");
-            Debug.Log($"属性值已更新");
+            //Debug.Log($"命煞: {string.Join(", ", mingshas)}");
+            //Debug.Log($"属性值已更新");
         }
         catch (Exception e)
         {

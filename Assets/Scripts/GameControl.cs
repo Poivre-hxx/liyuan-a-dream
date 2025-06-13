@@ -57,7 +57,7 @@ public class GameControl : MonoBehaviour
     {
         if (!objects.Contains(targetObject))
         {
-            Debug.LogWarning("Target object is not in the managed list!");
+            //Debug.LogWarning("Target object is not in the managed list!");
             return;
         }
 

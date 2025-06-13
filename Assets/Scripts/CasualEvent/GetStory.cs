@@ -36,7 +36,7 @@ public class GetStory : MonoBehaviour
     public void Update()
     {
         UpdateCurrentMingsha();
-        Debug.Log(curMingsha);
+        //Debug.Log(curMingsha);
         if (storyText != null && player != null)
         {
             storyText.text = "爱徒今年的命煞为：" + curMingsha + '\n';

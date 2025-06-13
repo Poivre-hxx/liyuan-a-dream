@@ -104,63 +104,63 @@ public class CircleProcess : MonoBehaviour
         if (show_four_Sing)
         {
             player.ModifyFourSing(Settings.SkillAmount);
-            Debug.Log($"Four Sing: {player.FourSing}");
+            //Debug.Log($"Four Sing: {player.FourSing}");
             targetFillAmount = player.FourSing / maxValue;
             ModifycirlesList(XianMuNames.four_Sing, targetFillAmount);
         }
         else if (show_four_Chant)
         {
             player.ModifyFourChant(Settings.SkillAmount);
-            Debug.Log($"Four Chant: {player.FourChant}");
+            //Debug.Log($"Four Chant: {player.FourChant}");
             targetFillAmount = player.FourChant / maxValue;
             ModifycirlesList(XianMuNames.four_Chant, targetFillAmount);
         }
         else if (show_four_Do)
         {
             player.ModifyFourDo(Settings.SkillAmount);
-            Debug.Log($"Four Do: {player.FourDo}");
+            //Debug.Log($"Four Do: {player.FourDo}");
             targetFillAmount = player.FourDo / maxValue;
             ModifycirlesList(XianMuNames.four_Do, targetFillAmount);
         }
         else if (show_four_Fight)
         {
             player.ModifyFourFight(Settings.SkillAmount);
-            Debug.Log($"Four Fight: {player.FourFight}");
+            //Debug.Log($"Four Fight: {player.FourFight}");
             targetFillAmount = player.FourFight / maxValue;
             ModifycirlesList(XianMuNames.four_Fight, targetFillAmount);
         }
         else if (show_five_Hand)
         {
             player.ModifyFiveHand(Settings.SkillAmount);
-            Debug.Log($"Five Hand: {player.FiveHand}");
+            //Debug.Log($"Five Hand: {player.FiveHand}");
             targetFillAmount = player.FiveHand / maxValue;
             ModifycirlesList(XianMuNames.five_Hand, targetFillAmount);
         }
         else if (show_five_Eye)
         {
             player.ModifyFiveEye(Settings.SkillAmount);
-            Debug.Log($"Five Eye: {player.FiveEye}");
+            //Debug.Log($"Five Eye: {player.FiveEye}");
             targetFillAmount = player.FiveEye / maxValue;
             ModifycirlesList(XianMuNames.five_Eye, targetFillAmount);
         }
         else if (show_five_Body)
         {
             player.ModifyFiveBody(Settings.SkillAmount);
-            Debug.Log($"Five Body: {player.FiveBody}");
+            //Debug.Log($"Five Body: {player.FiveBody}");
             targetFillAmount = player.FiveBody / maxValue;
             ModifycirlesList(XianMuNames.five_Body, targetFillAmount);
         }
         else if (show_Five_Magic)
         {
             player.ModifyFiveMagic(Settings.SkillAmount);
-            Debug.Log($"Five Magic: {player.FiveMagic}");
+            //Debug.Log($"Five Magic: {player.FiveMagic}");
             targetFillAmount = player.FiveMagic / maxValue;
             ModifycirlesList(XianMuNames.five_Magic, targetFillAmount);
         }
         else if (show_Five_Foot)
         {
             player.ModifyFiveFoot(Settings.SkillAmount);
-            Debug.Log($"Five Foot: {player.FiveFoot}");
+            //Debug.Log($"Five Foot: {player.FiveFoot}");
             targetFillAmount = player.FiveFoot / maxValue;
             ModifycirlesList(XianMuNames.five_Foot, targetFillAmount);
         }
@@ -205,55 +205,55 @@ public class CircleProcess : MonoBehaviour
         {
             totalValue += player.FourSing;
             selectedCount++;
-            Debug.Log($"Four Sing: {player.FourSing}");
+            //Debug.Log($"Four Sing: {player.FourSing}");
         }
         if (show_four_Chant)
         {
             totalValue += player.FourChant;
             selectedCount++;
-            Debug.Log($"Four Chant: {player.FourChant}");
+            //Debug.Log($"Four Chant: {player.FourChant}");
         }
         if (show_four_Do)
         {
             totalValue += player.FourDo;
             selectedCount++;
-            Debug.Log($"Four Do: {player.FourDo}");
+            //Debug.Log($"Four Do: {player.FourDo}");
         }
         if (show_four_Fight)
         {
             totalValue += player.FourFight;
             selectedCount++;
-            Debug.Log($"Four Fight: {player.FourFight}");
+            //Debug.Log($"Four Fight: {player.FourFight}");
         }
         if (show_five_Hand)
         {
             totalValue += player.FiveHand;
             selectedCount++;
-            Debug.Log($"Five Hand: {player.FiveHand}");
+            //Debug.Log($"Five Hand: {player.FiveHand}");
         }
         if (show_five_Eye)
         {
             totalValue += player.FiveEye;
             selectedCount++;
-            Debug.Log($"Five Eye: {player.FiveEye}");
+            //Debug.Log($"Five Eye: {player.FiveEye}");
         }
         if (show_five_Body)
         {
             totalValue += player.FiveBody;
             selectedCount++;
-            Debug.Log($"Five Body: {player.FiveBody}");
+            //Debug.Log($"Five Body: {player.FiveBody}");
         }
         if (show_Five_Magic)
         {
             totalValue += player.FiveMagic;
             selectedCount++;
-            Debug.Log($"Five Magic: {player.FiveMagic}");
+            //Debug.Log($"Five Magic: {player.FiveMagic}");
         }
         if (show_Five_Foot)
         {
             totalValue += player.FiveFoot;
             selectedCount++;
-            Debug.Log($"Five Foot: {player.FiveFoot}");
+            //Debug.Log($"Five Foot: {player.FiveFoot}");
         }
 
         if (selectedCount > 0)
@@ -262,12 +262,12 @@ public class CircleProcess : MonoBehaviour
             targetFillAmount = averageValue / maxValue;
             targetFillAmount = Mathf.Clamp01(targetFillAmount);
 
-            Debug.Log($"Total Value: {totalValue}, Count: {selectedCount}, Average: {averageValue}, Target Fill: {targetFillAmount}");
+            //Debug.Log($"Total Value: {totalValue}, Count: {selectedCount}, Average: {averageValue}, Target Fill: {targetFillAmount}");
         }
         else
         {
             targetFillAmount = 0f;
-            Debug.Log("No attributes selected, setting target fill to 0");
+            //Debug.Log("No attributes selected, setting target fill to 0");
         }
 
         if (targetFillAmount == 0f)

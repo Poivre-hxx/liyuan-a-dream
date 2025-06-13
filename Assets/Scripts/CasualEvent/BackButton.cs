@@ -59,7 +59,7 @@ public class BackButton : MonoBehaviour
             }
             
             gameControl.SetObjectVisible(targetObject);
-            Debug.Log($"Setting {targetObject.name} visible");
+            //Debug.Log($"Setting {targetObject.name} visible");
         }
         else
         {

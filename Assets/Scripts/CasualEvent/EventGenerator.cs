@@ -137,7 +137,7 @@ public class EventGenerator : MonoBehaviour
 
         var payload = new
         {
-            model = "meta-llama/Llama-3.3-70B-Instruct",
+            model = "deepseek-ai/DeepSeek-V3",
             messages = dialogueData,
             response_format = new ResponseFormat(),
             stream = false
@@ -174,7 +174,7 @@ public class EventGenerator : MonoBehaviour
 
             string description = response["event"]["description"].ToString();
 
-            Debug.Log($"生成的事件: {description}");
+            //Debug.Log($"生成的事件: {description}");
             player.SetCurMingshaEvent(description);
         }
         catch (Exception e)

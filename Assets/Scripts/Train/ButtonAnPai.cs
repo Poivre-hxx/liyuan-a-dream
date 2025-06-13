@@ -189,7 +189,7 @@ public class ButtonAnPai : MonoBehaviour
 
         var payload = new
         {
-            model = "meta-llama/Llama-3.3-70B-Instruct",
+            model = "deepseek-ai/DeepSeek-V3",
             messages = dialogueData,
             response_format = new ResponseFormat(),
             stream = false
@@ -223,7 +223,7 @@ public class ButtonAnPai : MonoBehaviour
         try
         {
             responseJson = CleanJsonResponse(responseJson);
-            Debug.Log($"清理后的 JSON: {responseJson}");
+            //Debug.Log($"清理后的 JSON: {responseJson}");
 
             JObject response = JObject.Parse(responseJson);
 
@@ -235,7 +235,7 @@ public class ButtonAnPai : MonoBehaviour
             }
 
             //description = CleanDescription(description);
-            Debug.Log($"清理后的描述: {description}");
+            //Debug.Log($"清理后的描述: {description}");
 
             if (player != null)
             {

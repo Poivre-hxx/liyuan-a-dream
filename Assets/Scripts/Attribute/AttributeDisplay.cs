@@ -35,12 +35,12 @@ public class AttributeDisplay : MonoBehaviour
         //只有随机事件后会产生
         if (response != null)
         {
-            Debug.Log("show Coroutine");
+            //Debug.Log("show Coroutine");
             StartCoroutine(ChangeAttribute(response));
         }
         else
         {
-            Debug.Log("normal show");
+            //Debug.Log("normal show");
             UpdateDisplay();
         }
     }
@@ -112,7 +112,7 @@ public class AttributeDisplay : MonoBehaviour
     {
         UpdateDisplay();
         var attrs = AttributeResponse["attributes"];
-        Debug.Log($"attrs:{attrs}");
+        //Debug.Log($"attrs:{attrs}");
         //道德
         if (Daode)
         {
@@ -162,9 +162,9 @@ public class AttributeDisplay : MonoBehaviour
     IEnumerator changeNum(int changeAmount,int oldValue)
     {
         int curValue = oldValue;
-        Debug.Log("Start attribute change Coroutine");
+        //Debug.Log("Start attribute change Coroutine");
         while (curValue <= oldValue + changeAmount){
-            Debug.Log(curValue);
+            //Debug.Log(curValue);
             curValue++;
             displayText.text = curValue.ToString();
             yield return new WaitForSeconds(0.2f);

@@ -56,7 +56,7 @@ public class AIsendData : MonoBehaviour
 
         var payload = new
         {
-            model = "meta-llama/Llama-3.3-70B-Instruct",
+            model = "deepseek-ai/DeepSeek-V3",
             messages = DialogueData,
             stream = false,
         };
@@ -83,7 +83,7 @@ public class AIsendData : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
             _response = uwr.downloadHandler.text;
             ApiSilicion apiResponse = JsonUtility.FromJson<ApiSilicion>(_response);
             string responseJson = apiResponse.choices[0].message.content;

@@ -42,11 +42,11 @@ public class MainSceneAnPai : MonoBehaviour
             if (targetObject != null)
             {
                 targetObject.SetActive(!targetObject.activeSelf);
-                Debug.Log($"已经切换为: {targetObject.activeSelf}");
+                //Debug.Log($"已经切换为: {targetObject.activeSelf}");
             }
             else
             {
-                Debug.LogWarning("失败");
+                //Debug.LogWarning("失败");
             }
         }
         else

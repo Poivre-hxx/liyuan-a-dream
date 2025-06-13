@@ -61,7 +61,6 @@ public class ScoreJudge : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("按下了");
         if (!isProcessing && gameObject.activeInHierarchy)
         {
             StartCoroutine(JudgeResponse());
@@ -75,7 +74,6 @@ public class ScoreJudge : MonoBehaviour
 
     IEnumerator JudgeResponse()
     {
-        Debug.Log("已按下");
         if (isProcessing || string.IsNullOrEmpty(responseInput.text)) yield break;
 
         string inputText = responseInput.text;
@@ -88,7 +86,6 @@ public class ScoreJudge : MonoBehaviour
 
     private IEnumerator SendToSiliconCoroutine()
     {
-        Debug.Log("开始生成评价");
         dialogueData.Clear();
 
         dialogueData.Add(new Dictionary<string, string>
@@ -127,7 +124,7 @@ public class ScoreJudge : MonoBehaviour
 
         var payload = new
         {
-            model = "meta-llama/Llama-3.3-70B-Instruct",
+            model = "deepseek-ai/DeepSeek-V3",
             messages = dialogueData,
             response_format = new ResponseFormat(),
             stream = false
@@ -165,7 +162,7 @@ public class ScoreJudge : MonoBehaviour
         try
         {
             JObject response = JObject.Parse(responseJson);
-            Debug.Log($"Player set Attribute{response}");
+            //Debug.Log($"Player set Attribute{response}");
             player.AttributeResponse = response;
 
             //在attribute界面修改
@@ -179,7 +176,7 @@ public class ScoreJudge : MonoBehaviour
             //player.ModifyTipoChange(attrs["tipo"].Value<int>());
             //player.ModifyMingqiChange(attrs["mingqi"].Value<int>());
 
-            Debug.Log($"生成完毕");
+            //Debug.Log($"生成完毕");
 
         }
         catch (Exception e)

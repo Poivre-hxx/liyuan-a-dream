@@ -43,16 +43,16 @@ public class SceneTrans : MonoBehaviour
         if (targetObject != null && gameControl != null)
         {
             gameControl.SetObjectVisible(targetObject);
-            Debug.Log($"Setting {targetObject.name} visible");
+            //Debug.Log($"Setting {targetObject.name} visible");
         }
         else
         {
-            Debug.Log($"Click failed - TargetObject: {targetObject != null}, GameControl: {gameControl != null}");
+            //Debug.Log($"Click failed - TargetObject: {targetObject != null}, GameControl: {gameControl != null}");
         }
     }
 
     private void OnMouseEnter()
     {
-        Debug.Log($"Mouse entered {gameObject.name}");
+        //Debug.Log($"Mouse entered {gameObject.name}");
     }
 }
